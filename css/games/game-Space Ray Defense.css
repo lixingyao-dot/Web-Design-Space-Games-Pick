@@ -1,0 +1,18 @@
+#gameCanvas {
+    z-index: 2;
+}
+
+.score-container, .lives-container {
+    background: rgba(0, 0, 30, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #4a4aff;
+    backdrop-filter: blur(5px);
+}
+
+.score, .lives {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4aff4a;
+    text-shadow: 0 0 10px #4aff4a;
+}

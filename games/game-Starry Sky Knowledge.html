@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星空知识问答</title>
+    <link rel="stylesheet" href="../css/common-game.css">
+    <link rel="stylesheet" href="../css/games/game-Starry Sky Knowledge.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="back-btn" id="backBtn">← 返回</button>
+    <h1 class="game-title">星空知识问答</h1>
+    
+    <div class="game-container">
+        <div class="stars" id="stars"></div>
+        <canvas id="gameCanvas"></canvas>
+        
+        <div class="game-ui">
+            <div class="score-container">
+                <div>得分</div>
+                <div class="score" id="score">0</div>
+            </div>
+            <div class="time-container">
+                <div>时间</div>
+                <div class="time" id="time">0</div>
+            </div>
+            <div class="question-container">
+                <div>问题</div>
+                <div class="question-count" id="questionCount">1/10</div>
+            </div>
+        </div>
+        
+        <div class="question-box" id="questionBox">
+            <div class="question-text" id="questionText">问题将在这里显示</div>
+            <div class="answers-container" id="answersContainer">
+                <!-- 答案选项将通过JS动态生成 -->
+            </div>
+            <button class="next-btn" id="nextBtn">下一题</button>
+        </div>
+        
+        <div class="feedback" id="feedback"></div>
+        
+        <div class="start-screen" id="startScreen">
+            <h2>星空知识问答</h2>
+            <p class="instructions">
+                测试你的天文知识！<br>
+                回答关于星空、行星和宇宙的问题。<br>
+                越快回答正确，得分越高！<br>
+                共有10个问题等你来挑战！<br>
+            </p>
+            <button class="btn" id="startBtn">开始游戏</button>
+        </div>
+        
+        <div class="game-over-screen hidden" id="gameOverScreen">
+            <h2>游戏完成！</h2>
+            <p class="instructions">
+                你的最终得分: <span id="finalScore">0</span><br>
+                总用时: <span id="finalTime">0</span> 秒<br>
+                正确答案: <span id="correctAnswers">0</span>/10<br>
+            </p>
+            <button class="btn" id="restartBtn">再玩一次</button>
+        </div>
+    </div>
+    
+    <footer>
+        星空知识问答 &copy; 2025 | 探索宇宙的奥秘！
+    </footer>
+    <script src="../js/games/game-Starry Sky Knowledge.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星空表情翻牌</title>
+    <link rel="stylesheet" href="../css/common-game.css">
+    <link rel="stylesheet" href="../css/games/game-Starry Sky Emojis Flip Card.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="back-btn" id="backBtn">← 返回主菜单</button>
+    <h1 class="game-title">星空表情包翻牌</h1>
+    
+    <div class="game-container">
+        <div class="stars" id="stars"></div>
+        <canvas id="gameCanvas"></canvas>
+        
+        <div class="game-ui">
+            <div class="score-container">
+                <div>得分</div>
+                <div class="score" id="score">0</div>
+            </div>
+            <div class="time-container">
+                <div>时间</div>
+                <div class="time" id="time">0</div>
+            </div>
+            <div class="moves-container">
+                <div>步数</div>
+                <div class="moves" id="moves">0</div>
+            </div>
+        </div>
+        
+        <div class="memory-board" id="memoryBoard"></div>
+        
+        <div class="start-screen" id="startScreen">
+            <h2>星空表情包翻牌</h2>
+            <p class="instructions">
+                测试你的记忆力！<br>
+                点击卡片翻开它们，找到所有匹配的表情包对子。<br>
+                用最少的步数和最短的时间完成游戏！<br>
+            </p>
+            <button class="btn" id="startBtn">开始游戏</button>
+        </div>
+        
+        <div class="game-over-screen hidden" id="gameOverScreen">
+            <h2>游戏完成！</h2>
+            <p class="instructions">
+                你的最终得分: <span id="finalScore">0</span><br>
+                用时: <span id="finalTime">0</span> 秒<br>
+                步数: <span id="finalMoves">0</span><br>
+            </p>
+            <button class="btn" id="restartBtn">再玩一次</button>
+        </div>
+    </div>
+    
+    <footer>
+        星空表情包翻牌 &copy; 2025 | 挑战你的记忆力！
+    </footer>
+    <script src="../js/games/game-Starry Sky Emojis Flip Card.js"></script>
+</body>
+</html>

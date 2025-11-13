@@ -1,0 +1,73 @@
+.score-container, .lives-container, .level-container, .powerup-container, .attack-speed-container {
+    background: rgba(0, 0, 30, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #4a4aff;
+    backdrop-filter: blur(5px);
+}
+
+.score, .lives, .level, .powerup, .attack-speed {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4aff4a;
+    text-shadow: 0 0 10px #4aff4a;
+}
+
+.powerup {
+    color: #ffaa00;
+    text-shadow: 0 0 10px #ffaa00;
+}
+
+.attack-speed {
+    color: #ff55ff;
+    text-shadow: 0 0 10px #ff55ff;
+}
+
+.power-up {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    box-shadow: 0 0 15px currentColor;
+}
+
+.power-up.triple { background: radial-gradient(circle, #ff5555, #ff0000); color: #ff5555; }
+.power-up.spread { background: radial-gradient(circle, #55ff55, #00ff00); color: #55ff55; }
+.power-up.laser { background: radial-gradient(circle, #5555ff, #0000ff); color: #5555ff; }
+.power-up.explosive { background: radial-gradient(circle, #ffff55, #ffff00); color: #ffff55; }
+.power-up.rapid { background: radial-gradient(circle, #ff55ff, #ff00ff); color: #ff55ff; }
+
+.explosion {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff5500, #ff0000);
+    animation: explode 0.5s forwards;
+}
+
+@keyframes explode {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+.bullet-effect {
+    position: absolute;
+    pointer-events: none;
+}
+
+.health-bar {
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background: rgba(255, 0, 0, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.health-fill {
+    height: 100%;
+    background: #ff0000;
+    transition: width 0.3s;
+}

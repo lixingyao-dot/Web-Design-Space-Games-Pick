@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太空防御者</title>
+    <link rel="stylesheet" href="../css/common-game.css">
+    <link rel="stylesheet" href="../css/games/game-Space Defender.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="back-btn" id="backBtn">← 返回主菜单</button>
+    <h1 class="game-title">太空防御者</h1>
+    
+    <div class="game-container">
+        <div class="stars" id="stars"></div>
+        <canvas id="gameCanvas"></canvas>
+        
+        <div class="game-ui">
+            <div class="score-container">
+                <div>分数</div>
+                <div class="score" id="score">0</div>
+            </div>
+            <div class="lives-container">
+                <div>生命值</div>
+                <div class="lives" id="lives">3</div>
+            </div>
+            <div class="level-container">
+                <div>等级</div>
+                <div class="level" id="level">1</div>
+            </div>
+            <div class="powerup-container">
+                <div>子弹效果</div>
+                <div class="powerup" id="powerup">普通</div>
+            </div>
+            <div class="attack-speed-container">
+                <div>攻击速度</div>
+                <div class="attack-speed" id="attackSpeed">1.0x</div>
+            </div>
+        </div>
+        
+        <div class="start-screen" id="startScreen">
+            <p class="instructions">
+                使用 A/D 或 ←/→ 键移动飞船<br>
+                使用 空格键 或 鼠标点击 发射激光<br>
+                摧毁所有敌人并尽可能获得高分！<br>
+                收集彩色能量块获得特殊效果：<br>
+                <span style="color:#ff5555">红色</span> - 三连发子弹<br>
+                <span style="color:#55ff55">绿色</span> - 散射子弹<br>
+                <span style="color:#5555ff">蓝色</span> - 激光子弹<br>
+                <span style="color:#ffff55">黄色</span> - 爆炸子弹<br>
+                <span style="color:#ff55ff">粉色</span> - 攻击频率提升<br>
+                <br>
+                新增多种敌机类型：<br>
+                <span style="color:#ff5555">红色</span> - 普通敌机（1生命值）<br>
+                <span style="color:#55aa55">绿色</span> - 重型敌机（3生命值）<br>
+                <span style="color:#5555ff">蓝色</span> - 快速敌机（高速移动）<br>
+                <span style="color:#aa55aa">紫色</span> - 精英敌机（特殊攻击模式）<br>
+                <span style="color:#ffaa00">橙色</span> - BOSS敌机（高生命值）<br>
+                <br>
+                攻击频率道具：提升攻击速度，最高可达3.0x！
+            </p>
+            <button class="btn" id="startBtn">开始游戏</button>
+        </div>
+        
+        <div class="game-over-screen hidden" id="gameOverScreen">
+            <h2>游戏结束</h2>
+            <p class="instructions">你的最终得分: <span id="finalScore">0</span></p>
+            <button class="btn" id="restartBtn">重新开始</button>
+        </div>
+    </div>
+    
+    <footer>
+        太空防御者 &copy; 2025 | 挑战多种不同类型的敌机！
+    </footer>
+    <script src="../js/games/game-Space Defender.js"></script>
+</body>
+</html>

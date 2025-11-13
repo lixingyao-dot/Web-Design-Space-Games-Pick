@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <title>查看所有 - 星际探索首页</title>
+  <link rel="stylesheet" href="../css/pages/game-portal.css">
+</head>
+
+<body>
+  <!-- 星空背景 -->
+  <div id="stars"></div>
+  
+  <!-- 流星容器 -->
+  <div id="meteors"></div>
+  
+  <!-- 星球 -->
+  <div id="planets">
+
+    <div class="planet" style="width: 200px; height: 200px; top: 10%; left: 5%;">
+      <div class="planet-glow" style="width: 100%; height: 100%; background: radial-gradient(circle at 30% 30%, #ff6b6b, #c44569);"></div>
+      <div class="planet-crater" style="width: 20px; height: 20px; top: 30%; left: 20%;"></div>
+      <div class="planet-crater" style="width: 15px; height: 15px; top: 60%; left: 40%;"></div>
+      <div class="planet-crater" style="width: 25px; height: 25px; top: 40%; left: 70%;"></div>
+    </div>
+
+    <div class="planet" style="width: 150px; height: 150px; top: 60%; right: 8%;">
+      <div class="planet-glow" style="width: 100%; height: 100%; background: radial-gradient(circle at 40% 40%, #74b9ff, #0984e3);"></div>
+      <div class="planet-crater" style="width: 15px; height: 15px; top: 20%; left: 30%;"></div>
+      <div class="planet-crater" style="width: 10px; height: 10px; top: 50%; left: 60%;"></div>
+      <div class="planet-crater" style="width: 20px; height: 20px; top: 70%; left: 40%;"></div>
+    </div>
+
+    <div class="planet" style="width: 100px; height: 100px; top: 30%; right: 20%;">
+      <div class="planet-glow" style="width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #55efc4, #00b894);"></div>
+      <div class="planet-crater" style="width: 12px; height: 12px; top: 40%; left: 30%;"></div>
+      <div class="planet-crater" style="width: 8px; height: 8px; top: 60%; left: 60%;"></div>
+    </div>
+
+    <div class="planet" style="width: 80px; height: 80px; top: 80%; left: 20%;">
+      <div class="planet-glow" style="width: 100%; height: 100%; background: radial-gradient(circle at 60% 60%, #fdcb6e, #e17055);"></div>
+    </div>
+  </div>
+  
+  <!-- 提供滚动空间 -->
+  <div class="scroll-space"></div>
+  
+  <!-- 中央火箭 -->
+  <div class="rocket-container floating">
+    <div class="rocket">
+
+      <div class="rocket-section">
+        <div style="width: 4rem; height: 4rem; margin-left: auto; margin-right: auto; background-color: var(--rocketGray); border-top-left-radius: 50%; border-top-right-radius: 50%; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0.5rem; left: 0; width: 100%; height: 1px; background-color: rgba(237, 137, 54, 0.7);"></div>
+          <div style="position: absolute; top: 1.5rem; left: 0; width: 100%; height: 1px; background-color: rgba(237, 137, 54, 0.5);"></div>
+          <div style="position: absolute; top: -1rem; left: 50%; transform: translateX(-50%); width: 1rem; height: 2rem; background-color: var(--rocketRed); border-top-left-radius: 50%; border-top-right-radius: 50%;"></div>
+        </div>
+      </div>
+
+      <div class="rocket-section">
+        <div style="width: 4rem; height: 8rem; margin-left: auto; margin-right: auto; background-color: var(--rocketGray); position: relative;">
+          <div style="position: absolute; top: 2rem; left: 50%; transform: translateX(-50%); width: 2.5rem; height: 2.5rem; border-radius: 50%; background-color: var(--blue-900); border: 2px solid #d1d5db; box-shadow: 0 0 8px rgba(226, 232, 240, 0.9); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 1.5rem; height: 1.5rem; border-radius: 50%; background-color: rgba(224, 242, 254, 0.9);"></div>
+          </div>
+          
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 1px; background-color: var(--rocketOrange);"></div>
+          <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background-color: var(--rocketOrange);"></div>
+          <div style="position: absolute; top: 4rem; left: 0; width: 100%; height: 0.5px; background-color: rgba(237, 137, 54, 0.6);"></div>
+          
+          <div style="position: absolute; top: 1rem; left: 0; width: 1px; height: 1.5rem; background-color: var(--rocketRed);"></div>
+          <div style="position: absolute; top: 1rem; right: 0; width: 1px; height: 1.5rem; background-color: var(--rocketRed);"></div>
+        </div>
+      </div>
+
+      <div class="rocket-section">
+        <div style="width: 5rem; height: 4rem; margin-left: auto; margin-right: auto; background-color: var(--rocketGray); position: relative;">
+          <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 3rem; height: 1.5rem; background-color: var(--gray-800); border-top-left-radius: 50%; border-top-right-radius: 50%;"></div>
+          
+          <div style="position: absolute; top: 0; left: -1rem; width: 3rem; height: 4rem; background-color: var(--rocketGray); transform: skewX(-12deg);">
+            <div style="position: absolute; top: 0.5rem; left: 0.5rem; width: 2rem; height: 1px; background-color: rgba(237, 137, 54, 0.7);"></div>
+          </div>
+          <div style="position: absolute; top: 0; right: -1rem; width: 3rem; height: 4rem; background-color: var(--rocketGray); transform: skewX(12deg);">
+            <div style="position: absolute; top: 0.5rem; right: 0.5rem; width: 2rem; height: 1px; background-color: rgba(237, 137, 54, 0.7);"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 火焰容器 -->
+      <div id="flame-container" style="position: relative; width: 100%; height: 0; display: flex; justify-content: center; animation: flameWobble 0.8s infinite alternate ease-in-out;">
+        <div class="flame-outer" style="position: absolute; width: 5rem; height: 100%; background: linear-gradient(to bottom, rgba(236, 201, 75, 0.6), rgba(237, 137, 54, 0.4), transparent); border-radius: 60% 60% 40% 40%;"></div>
+        <div class="flame-inner" style="position: absolute; width: 4rem; height: 100%; background: linear-gradient(to bottom, rgba(236, 201, 75, 0.8), rgba(237, 137, 54, 0.6), rgba(229, 62, 62, 0.3)); border-radius: 50% 50% 30% 30%;"></div>
+        <div class="flame-core" style="position: absolute; width: 2.5rem; height: 100%; background: linear-gradient(to bottom, var(--flameYellow), var(--flameOrange), rgba(229, 62, 62, 0.7)); border-radius: 40% 40% 20% 20%;"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 左侧内容容器 -->
+  <div class="left-panel">
+      <div class="content-container">
+
+          <div class="content-panel" data-scroll-range="[10,25]">
+              <h2>太空知识测试</h2>
+              <p>发射前全员太空知识测试启动，未达标人员需即时参与补训，确保任务期间全员具备应急处置能力。</p>
+
+              <div class="media-container">
+                  <video width="100%" height="200px" autoplay loop muted data-game-url="../games/game-Starry Sky Knowledge.html">
+                      <source src="../assets/videos/game-Starry Sky Knowledge.mp4" type="video/mp4">
+                      您的浏览器不支持视频播放
+                  </video>
+                  <div class="media-caption">《星空知识问答》游戏，点击开始</div>
+              </div>
+          </div>
+
+          <div class="content-panel" data-scroll-range="[25,40]">
+
+              <h2>发射台攻防保障</h2>
+              <p>燃料加注作业按流程收尾，气象雷达监测到轨道周边无异常天象。发射台部署了《太空防御者》地面简化版系统，可拦截低空漂浮物与小型飞行器，为火箭发射构建最后一道安全屏障，发射许可正式下达。</p>
+              <div class="media-container">
+                  <video width="100%" height="200px" autoplay loop muted data-game-url="../games/game-Space Ray Defense.html">
+                      <source src="../assets/videos/game-Space Ray Defense.mp4" type="video/mp4">
+                      您的浏览器不支持视频播放
+                  </video>
+                  <div class="media-caption">《太空射线防御》游戏，点击开始</div>
+              </div>
+          </div>
+
+          <div class="content-panel" data-scroll-range="[40,55]">
+              <h2>战斗模拟</h2>
+              <p>针对逼近的不明飞行物集群，《太空防御者》实战模拟模式全面启动。系统结合实时飞行物数据，生成针对性拦截方案，机组人员操控模拟武器系统展开防御战斗，精准锁定目标并执行拦截动作。</p>
+              <div class="media-container">
+                <video width="100%" height="200px" autoplay loop muted data-game-url="../games/game-Space Defender.html">
+                    <source src="../assets/videos/game-Space Defender.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放
+              </video>  
+                <div class="media-caption">《太空防御者》游戏，点击开始</div>
+              </div>
+          </div>
+
+          <div class="content-panel" data-scroll-range="[55,70]">
+              <h2>星空智力翻牌休闲</h2>
+              <p>在无威胁的平稳飞行阶段，机组人员开展星空智力翻牌休闲活动。该游戏内置各类天体特征等趣味卡片，既能帮助机组人员放松身心，缓解高强度任务带来的压力，又能巩固深空探测相关知识。</p>
+              <div class="media-container">
+                    <video width="100%" height="200px" autoplay loop muted data-game-url="../games/game-Starry Sky Emojis Flip Card.html">
+                          <source src="../assets/videos/game-Starry Sky Emojis Flip Card.mp4" type="video/mp4">
+                          您的浏览器不支持视频播放
+                    </video> 
+                  <div class="media-caption">《星空智力翻牌》游戏，点击开始</div>
+              </div>
+          </div>
+
+          <div class="content-panel" data-scroll-range="[70,85]">
+              <h2>黑洞逃脱</h2>
+            <p>《黑洞逃脱》系统全面接管推进器微调控制权，机组人员根据系统实时推送的引力数据，精准操控推进器输出功率。通过多次轨道修正，逐步脱离黑洞引力束缚。</p>
+              <div class="media-container">
+                  <video width="100%" height="200px" autoplay loop muted data-game-url="../games/game-Black Hole Escape.html">
+                      <source src="../assets/videos/game-BlackHoleEscape.mp4" type="video/mp4">
+                      您的浏览器不支持视频播放
+                  </video> 
+                    <div class="media-caption">《黑洞逃脱》游戏，点击开始</div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- 右侧内容容器 -->
+  <div class="right-panel">
+      <div class="content-container">
+          <div class="content-panel text-right" data-scroll-range="[0,15]">
+              <h2>星际探索任务规划</h2>
+              <p>本次深空探测任务目标锁定M-78星云，轨道计算结合引力弹弓效应优化完成。发射窗口预定于世界协调时间<span id="currentUtcTime"></span>（北京时间<span id="currentBeijngTime"></span>）。请全员在3分钟完成航天知识考核，向下滚动继续</p>
+              <div class="media-container">
+                  <img src="../assets/images/m78.jpg" alt="M-78星云图片" style="width: 100%; height: 200px; object-fit: cover;">
+                  <div class="media-caption">M-78星云图片</div>
+              </div>
+          </div>
+
+          <div class="content-panel text-right" data-scroll-range="[15,30]">
+              <h2>点火发射升空</h2>
+              <p>全系统状态正常。主发动机点火启动，推力逐步攀升。地面模拟屏同步运行《太空防御者》实战预演，模拟升空阶段可能遭遇的陨石,射线撞击拦截场景，发动机持续稳定输出推力。</p>
+              <div class="media-container">
+                  <img src="../assets/images/game-Space Ray Defense.png" alt="深空航行视角" style="width: 100%; height: 200px; object-fit: cover;">
+                  <div class="media-caption">基于《太空防御者》技术的发射台周边安全监控画面</div>
+              </div>
+          </div>
+
+          <div class="content-panel" data-scroll-range="[30,45]">
+              <h2>遭遇大量飞行物</h2>
+              <p>脱离近地轨道后，雷达突然探测到前方空域出现大量不明飞行物，呈集群式高速逼近。机组人员迅速进入警戒状态，即刻切换至战斗准备模式，所有防御系统同步预热，导航系统实时测算飞行物轨迹与运动规律。</p>
+              <div class="media-container">
+                  <img src="../assets/images/game-Space Defender.png" alt="遭遇大量飞行物" style="width: 100%; height: 200px; object-fit: cover;">
+                  <div class="media-caption">飞行物集群</div>
+              </div>
+          </div>
+
+          <div class="content-panel text-right" data-scroll-range="[45,60]">
+              <h2>飞行物消失，取消警戒</h2>
+              <p>经过一轮防御战斗模拟处置后，不明飞行物集群突然改变轨迹，逐步远离航线并最终从雷达监测范围内消失。经系统全面排查，周边空域无残留威胁目标，机组人员解除战斗状态，正式放弃警戒，设备恢复常规运行模式。</p>
+              <div class="media-container">
+                  <img src="../assets/images/safespace.png" alt="取消警戒" style="width: 100%; height: 200px; object-fit: cover;">
+                  <div class="media-caption">系统解除警戒后的空域安全监测画面</div>
+              </div>
+          </div>
+
+          <div class="content-panel text-right" data-scroll-range="[60,75]">
+            <h2>柯伊伯带遭遇黑洞</h2>
+              <p>飞船顺利抵达柯伊伯带边缘，在此区域探测到几处小型黑洞形成的引力场。黑洞产生的引力正逐步影响飞船轨迹，机组人员立即启动《黑洞逃脱》专项系统，开始执行黑洞摆脱操作。</p>
+              <div class="media-container">
+                  <img src="../assets/images/game-Black Hole Escape.png" alt="遭遇黑洞" style="width: 100%; height: 200px; object-fit: cover;">
+                  <div class="media-caption">准备进行黑洞逃脱</div>
+              </div>
+          </div>
+
+          <div class="content-panel text-right" data-scroll-range="[75,90]">
+              <h2>全速进击深空</h2>
+              <p>飞船已成功脱离黑洞引力影响，抵达安全空域。经全面检测，所有设备运行正常，能源储备充足。机组人员即刻调整飞船至最大功率输出状态，全速前进，向着更深更远的宇宙空间进击！</p>
+              <div class="media-container">
+                  <img src="../assets/images/fullspeedflight.png" alt="全速飞行" style="width: 100%; height: 200px; object-fit: cover;">
+                  <div class="media-caption">飞船全速飞向深空的航行</div>  
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script src="../js/pages/game-portal.js"></script>
+</body>
+</html>

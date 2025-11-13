@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>游戏世界 - 太空游戏选</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- 太空背景容器 -->
+  <div id="stars" ></div>
+  <div id="meteors" ></div>
+  <div id="planets" class=>
+    <!-- 大型红色星球 -->
+    <div class="planet" style="width: 200px; height: 200px; top: 10%; left: 5%;">
+      <div class="planet-glow" style="width: 100%; height: 100%; background: radial-gradient(circle at 30% 30%, #ff6b6b, #c44569);"></div>
+      <div class="planet-crater" style="width: 20px; height: 20px; top: 30%; left: 20%;"></div>
+      <div class="planet-crater" style="width: 15px; height: 15px; top: 60%; left: 40%;"></div>
+      <div class="planet-crater" style="width: 25px; height: 25px; top: 40%; left: 70%;"></div>
+    </div>
+    
+    <!-- 中型蓝色星球 -->
+    <div class="planet" style="width: 150px; height: 150px; top: 60%; right: 8%;">
+      <div class="planet-glow" style="width: 100%; height: 100%; background: radial-gradient(circle at 40% 40%, #74b9ff, #0984e3);"></div>
+      <div class="planet-crater" style="width: 15px; height: 15px; top: 20%; left: 30%;"></div>
+      <div class="planet-crater" style="width: 10px; height: 10px; top: 50%; left: 60%;"></div>
+      <div class="planet-crater" style="width: 20px; height: 20px; top: 70%; left: 40%;"></div>
+    </div>
+    
+    <!-- 小型绿色星球 -->
+    <div class="planet" style="width: 100px; height: 100px; top: 30%; right: 20%;">
+      <div class="planet-glow" style="width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #55efc4, #00b894);"></div>
+      <div class="planet-crater" style="width: 12px; height: 12px; top: 40%; left: 30%;"></div>
+      <div class="planet-crater" style="width: 8px; height: 8px; top: 60%; left: 60%;"></div>
+    </div>
+    
+    <!-- 远处小星球 -->
+    <div class="planet" style="width: 80px; height: 80px; top: 80%; left: 20%;">
+      <div class="planet-glow" style="width: 100%; height: 100%; background: radial-gradient(circle at 60% 60%, #fdcb6e, #e17055);"></div>
+    </div>
+  </div>
+  
+  <!-- 加载遮罩 -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="loader-spinner animate-spin"></div>
+      <p class="loader-text">游戏世界加载中...</p>
+    </div>
+  </div>
+  
+  <!-- 首页 - 图片拆分翻转 -->
+  <section id="heroSection" class="content-section section-visible">
+    <div class="hero-container">
+      <!-- 原始图片 -->
+      <div id="originalImage" class="original-image">
+        <img src="./assets/images/index.png" alt="首页封面">
+      </div>
+      
+     
+      <!-- 拆分后 -->
+      <div id="splitContainer" class="split-container">
+          <div class="split-item perspective-1000" data-rotate="8deg" data-offset="-40px" data-delay="300" data-scale="0.9">
+              <div class="flip-card preserve-3d" style="box-shadow: none; transform: rotateZ(0deg);">
+                  <div class="flip-front backface-hidden image-container" 
+                      style="background-image: url('./assets/images/index.png'); background-position: 0% 0;">
+                  </div>
+                  <div class="flip-back backface-hidden rotate-y-180" style="background: linear-gradient(135deg, #081a36 0%, #102c54 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px; border-radius: 12px; text-align: center;">
+                      <i class="fa fa-satellite text-5xl text-[#3b82f6] mb-5" style="text-shadow: 0 0 20px rgba(59,130,246,0.7);"></i>
+                      <h3 style="font-size: 1.3rem; color: #ffffff; margin-bottom: 12px; font-weight: 600;">人类对太空的探索</h3>
+                      <p style="font-size: 0.9rem; color: #bac2c9; line-height: 1.6;font-size: large;">从阿波罗登月到祝融探火，从哈勃望远镜到韦伯深空探测，人类用航天器划破天际，一步步揭开宇宙的神秘面纱。</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="split-item perspective-1000" data-rotate="0deg" data-offset="0" data-delay="600" data-scale="0.9">
+              <div class="flip-card preserve-3d" style="box-shadow: none; transform: rotateZ(0deg);">
+                  <div class="flip-front backface-hidden image-container"
+                      style="background-image: url('./assets/images/index.png'); background-position: 50% 0;">
+                  </div>
+                  <div class="flip-back backface-hidden rotate-y-180" style="background: linear-gradient(135deg, #210f50 0%, #341a79 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px; border-radius: 12px; text-align: center;">
+                      <i class="fa fa-user-astronaut text-5xl text-[#8b5cf6] mb-5" style="text-shadow: 0 0 20px rgba(139,92,246,0.7);"></i>
+                      <h3 style="font-size: 1.3rem; color: #ffffff; margin-bottom: 12px; font-weight: 600;">人类对太空的幻想</h3>
+                      <p style="font-size: 0.9rem; color: #c4b5fd; line-height: 1.6;font-size: large;">科幻小说中的星际帝国、电影里的外星文明、传说中的太空城... 幻想为宇宙注入浪漫，成为探索不止的精神动力。</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="split-item perspective-1000" data-rotate="-8deg" data-offset="40px" data-delay="900" data-scale="0.9">
+              <div class="flip-card preserve-3d" style="box-shadow: none; transform: rotateZ(0deg);">
+                  <div class="flip-front backface-hidden image-container"
+                      style="background-image: url('./assets/images/index.png'); background-position: 100% 0;">
+                  </div>
+                  <div class="flip-back backface-hidden rotate-y-180" style="background: linear-gradient(135deg, #0f342e 0%, #1a564e 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px; border-radius: 12px; text-align: center;">
+                      <i class="fa fa-gamepad text-5xl text-[#10b981] mb-5" style="text-shadow: 0 0 20px rgba(16,185,129,0.7);"></i>
+                      <h3 style="font-size: 1.3rem; color: #ffffff; margin-bottom: 12px; font-weight: 600;">游戏带你探索太空</h3>
+                      <p style="font-size: 0.9rem; color: #99f6e4; line-height: 1.6;font-size: large;">本网站将探索与游戏结合，驾驶战机、抵御威胁、穿越黑洞，让你在沉浸式互动中，亲身“踏入”浩瀚宇宙。</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" id="scrollDownHint">
+      <span>探索游戏世界</span>
+      <i class="fa fa-chevron-down"></i>
+    </div>
+  </section>
+  
+  <!-- 游戏内容区域 -->
+  <section id="mainContent" class="content-section section-down" style="padding: 2rem 0;">
+    <div class="container">
+      <div class="logo-container">
+        <div class="logo">
+          <i class="fa fa-gamepad"></i>
+        </div>
+      </div>
+      
+      <!-- 标题 -->
+      <h1 class="section-title text-shadow">
+        精选游戏合集
+      </h1>
+      <p class="section-desc">
+        探索精心挑选的游戏世界，体验不同类型的游戏乐趣
+      </p>
+      
+      <!-- 游戏列表 -->
+      <div class="game-grid">
+        <!-- 游戏卡片1 -->
+        <div class="game-card">
+          <div class="game-card-image">
+            <div class="video-card-container">
+              <div class="video-card-front">
+                <img src="./assets/images/game-Black Hole Escape.png"  alt="黑洞引力逃脱">
+              </div>
+              <div class="video-card-back">
+                <video class="game-card-video" autoplay loop muted playsinline>
+                  <source src="./assets/videos/game-BlackHoleEscape.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+          <div class="game-card-content">
+            <h3>黑洞引力逃脱</h3>
+            <p>在宇宙深渊中挑战引力的极限，逃离黑洞的致命拉扯！</p>
+            <button class="game-card-button" data-game-link="games/game-Black Hole Escape.html">
+              开始游戏
+            </button>
+          </div>
+        </div>
+        
+        <!-- 游戏卡片2 -->
+        <div class="game-card">
+          <div class="game-card-image">
+            <div class="video-card-container">
+              <div class="video-card-front">
+                <img src="./assets/images/game-Space Defender.png" alt="太空防御者">
+              </div>
+              <div class="video-card-back">
+                <video class="game-card-video" autoplay loop muted playsinline>
+                  <source src="./assets/videos/game-Space Defender.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+          <div class="game-card-content">
+            <h3>太空防御者</h3>
+            <p>驾驶星际战机，在银河系中抵御外星入侵者的进攻</p>
+            <button class="game-card-button" data-game-link="games/game-Space Defender.html">
+              开始游戏
+            </button>
+          </div>
+        </div>
+        
+        <!-- 游戏卡片3 -->
+        <div class="game-card">
+          <div class="game-card-image">
+            <div class="video-card-container">
+              <div class="video-card-front">
+                <img src="./assets/images/game-Space Ray Defense.png"  alt="太空射线防御">
+              </div>
+              <div class="video-card-back">
+                <video class="game-card-video" autoplay loop muted playsinline>
+                  <source src="./assets/videos/game-Space Ray Defense.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+          <div class="game-card-content">
+            <h3>太空射线防御</h3>
+            <p>建立轨道防御系统，保护地球免受致命宇宙射线的侵袭</p>
+            <button class="game-card-button" data-game-link="games/game-Space Ray Defense.html">
+              开始游戏
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 操作按钮 -->
+      <div class="button-group">
+        <button class="btn-primary">
+          查看所有游戏
+        </button>
+        <button class="btn-secondary">
+          了解更多
+        </button>
+      </div>
+      
+      <!-- 返回顶部提示 -->
+      <div class="scroll-hint" id="scrollUpHint">
+        <i class="fa fa-chevron-up"></i>
+        <span>返回顶部</span>
+      </div>
+    </div>
+  </section>
+  <script src="./js/index.js"></script>
+</body>
+</html>

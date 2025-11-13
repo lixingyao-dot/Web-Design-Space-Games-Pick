@@ -1,0 +1,81 @@
+.score-container, .time-container, .moves-container {
+    background: rgba(0, 0, 30, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #4a4aff;
+    backdrop-filter: blur(5px);
+}
+
+.score, .time, .moves {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4aff4a;
+    text-shadow: 0 0 10px #4aff4a;
+}
+
+.memory-board {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    width: 700px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    z-index: 5;
+}
+
+.memory-card {
+    background: linear-gradient(135deg, #1a1a5e, #2a2a7e);
+    border-radius: 10px;
+    border: 2px solid #4a4aff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    box-shadow: 0 0 10px rgba(74, 74, 255, 0.5);
+}
+
+.memory-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+    border-color: #4aff4a;
+    box-shadow: 0 0 15px #4aff4a;
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #4a4aff, #8a8aff);
+    transform: rotateY(180deg);
+}
+
+.card-back {
+    background: linear-gradient(135deg, #2a2a5e, #3a3a7e);
+}
+
+.card-back::after {
+    content: "?";
+    font-size: 2rem;
+    color: #4a4aff;
+    text-shadow: 0 0 10px #4a4aff;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+}

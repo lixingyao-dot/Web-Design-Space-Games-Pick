@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑洞引力逃脱 | Black Hole Escape</title>
+    <link rel="stylesheet" href="../css/common-game.css">
+    <link rel="stylesheet" href="../css/games/game-Black Hole Escape.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <button class="back-btn" id="backBtn">← 返回主菜单</button>
+    <h1 class="game-title">黑洞引力逃脱</h1>
+    
+    <div class="game-container">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <div class="game-ui">
+            <div class="score-container">
+                <div>得分</div>
+                <div class="score" id="score">0</div>
+            </div>
+            <div class="time-container">
+                <div>时间</div>
+                <div class="time" id="time">0</div>
+            </div>
+            <div class="blackhole-container">
+                <div>黑洞数量</div>
+                <div class="blackhole-count">4</div>
+            </div>
+        </div>
+        
+        <div class="start-screen" id="startScreen">
+            <h2>黑洞引力逃脱</h2>
+            <p class="instructions">
+                在宇宙深渊中挑战引力的极限<br>
+                使用方向键控制飞船对抗黑洞引力<br>
+                避免触碰黑洞或飞出屏幕边界
+            </p>
+            
+            <div class="controls-info">
+                <div class="control-key">↑</div>
+                <div class="control-key">↓</div>
+                <div class="control-key">←</div>
+                <div class="control-key">→</div>
+            </div>
+            
+            <p class="instructions">存活时间越长，得分越高！</p>
+            <button class="btn" id="startBtn">开始挑战</button>
+        </div>
+        
+        <div class="game-over-screen hidden" id="gameOverScreen">
+            <h2>任务失败</h2>
+            <p class="instructions">
+                你的飞船已被黑洞吞噬<br>
+                最终得分: <span id="finalScore">0</span><br>
+                存活时间: <span id="finalTime">0</span> 秒
+            </p>
+            <button class="btn" id="restartBtn">重新挑战</button>
+        </div>
+    </div>
+    
+    <footer>
+        黑洞引力逃脱 &copy; 2025 | 在宇宙深渊中挑战引力的极限！
+    </footer>
+
+    <script src="../js/games/game-Black Hole Escape.js"></script>
+</body>
+</html>

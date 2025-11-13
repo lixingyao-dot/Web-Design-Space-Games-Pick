@@ -1,0 +1,122 @@
+.score-container, .time-container, .question-container {
+    background: rgba(0, 0, 30, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #4a4aff;
+    backdrop-filter: blur(5px);
+}
+
+.score, .time, .question-count {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4aff4a;
+    text-shadow: 0 0 10px #4aff4a;
+}
+
+.question-box {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    width: 700px;
+    height: 400px;
+    background: rgba(0, 0, 30, 0.7);
+    border-radius: 10px;
+    border: 2px solid #4a4aff;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+    backdrop-filter: blur(5px);
+}
+
+.question-text {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-align: center;
+    flex: 1;
+}
+
+.answers-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 2;
+}
+
+.answer-card {
+    background: linear-gradient(135deg, #1a1a5e, #2a2a7e);
+    border-radius: 10px;
+    border: 2px solid #4a4aff;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(74, 74, 255, 0.3);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.answer-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(74, 74, 255, 0.6);
+}
+
+.answer-card.correct {
+    border-color: #4aff4a;
+    background: linear-gradient(135deg, #1a5e1a, #2a7e2a);
+    box-shadow: 0 0 15px #4aff4a;
+}
+
+.answer-card.incorrect {
+    border-color: #ff4a4a;
+    background: linear-gradient(135deg, #5e1a1a, #7e2a2a);
+    box-shadow: 0 0 15px #ff4a4a;
+}
+
+.feedback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 20px 40px;
+    border-radius: 10px;
+    z-index: 15;
+    display: none;
+}
+
+.feedback.correct {
+    background: rgba(74, 255, 74, 0.8);
+    color: #0a2a0a;
+    display: block;
+}
+
+.feedback.incorrect {
+    background: rgba(255, 74, 74, 0.8);
+    color: #2a0a0a;
+    display: block;
+}
+
+.next-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: linear-gradient(45deg, #4a4aff, #8a8aff);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(74, 74, 255, 0.4);
+    display: none;
+}
+
+.next-btn.visible {
+    display: block;
+}

@@ -1,0 +1,586 @@
+/* 基础变量定义 */
+:root {
+    --dark: #0a0f1a;
+    --accent: #3b82f6;
+    --accent2: #8b5cf6;
+    --accent3: #10b981;
+    --space: #050a1f;
+    --white: #ffffff;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --border-opacity-10: rgba(255, 255, 255, 0.1);
+    --border-opacity-20: rgba(255, 255, 255, 0.2);
+    --border-opacity-40: rgba(255, 255, 255, 0.4);
+    --accent-opacity-30: rgba(59, 130, 246, 0.3);
+    --accent-opacity-80: rgba(59, 130, 246, 0.8);
+    --accent-opacity-90: rgba(59, 130, 246, 0.9);
+    --bg-opacity-10: rgba(59, 130, 246, 0.1);
+    --bg-opacity-80: rgba(10, 15, 26, 0.8);
+}
+
+/* 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 3D相关样式 */
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }
+.perspective-1000 { perspective: 1000px; }
+
+/* 拆分项样式 */
+.split-item { 
+    transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1); 
+    transform: translateX(0) scale(1); 
+    width: 33.333%;
+    height: 100%;
+    position: relative;
+}
+.flip-card .image-container,
+.flip-back {
+    transition: border-radius 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.flip-card { 
+    transition: all 1.5s cubic-bezier(0.23, 1, 0.32, 1); 
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#originalImage img {
+    border-radius: 12px;
+    transition: all 0.5s ease;
+    opacity: 1;
+}
+.split-item:nth-child(1) .flip-card .image-container {
+    border-radius: 12px 0 0 12px;
+    overflow: hidden;
+}
+.split-item:nth-child(2) .flip-card .image-container {
+    border-radius: 0;
+    overflow: hidden;
+}
+.split-item:nth-child(3) .flip-card .image-container {
+    border-radius: 0 12px 12px 0;
+    overflow: hidden;
+}
+.split-item.separated .flip-card .image-container {
+    border-radius: 12px;
+    overflow: hidden;
+}
+.flip-back {
+    border-radius: 12px;
+}
+
+/* 核心样式 */
+body {
+    scroll-behavior: smooth;
+    background-color: var(--space);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+.content-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform;
+    position: relative;
+    z-index: 10;
+}
+
+.section-up {
+    transform: translateY(-100vh);
+}
+
+.section-down {
+    transform: translateY(100vh);
+}
+
+.section-visible {
+    transform: translateY(0);
+}
+
+.text-shadow {
+    text-shadow: 0 2px 10px var(--accent-opacity-30);
+}
+
+/* 滚动提示动画 */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.scroll-hint {
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    z-index: 20;
+}
+
+/* 游戏卡片核心样式 */
+.game-card {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(10, 15, 26, 0.7);
+    backdrop-filter: blur(10px);
+    position: relative;
+    transform-style: preserve-3d;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-opacity-10);
+    padding: 24px;
+}
+
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+    z-index: 2;
+}
+
+.game-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--bg-opacity-10) 0%, transparent 30%, transparent 70%, rgba(139, 92, 246, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.game-card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.03);
+    box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(59, 130, 246, 0.2),
+    inset 0 0 60px rgba(59, 130, 246, 0.1);
+}
+
+.game-card:hover::after {
+    opacity: 1;
+}
+
+/* 视频卡片核心样式 */
+.video-card-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.video-card-front,
+.video-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+.video-card-back {
+    transform: rotateY(180deg);
+    background: #000;
+}
+
+.game-card:hover .video-card-container {
+    transform: rotateY(180deg);
+}
+
+.game-card-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.game-card-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    transform: translateZ(20px);
+    width: 100%;
+    height: 12rem;
+    margin-bottom: 16px;
+}
+
+.game-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+}
+
+.game-card-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(10, 15, 26, 0.9), transparent);
+    z-index: 1;
+}
+
+.game-card-content {
+    position: relative;
+    z-index: 2;
+    transform: translateZ(30px);
+}
+
+.game-card-content h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.game-card-content p {
+    color: var(--gray-300);
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
+
+.game-card-button {
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(20px);
+    transition: all 0.3s ease;
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 8px 24px;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.game-card-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.game-card-button:hover::before {
+    left: 100%;
+}
+
+.game-card-button:hover {
+    background-color: var(--accent-opacity-90);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* 太空背景核心样式 */
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+.meteor {
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px white);
+    opacity: 0;
+    z-index: 2;
+}
+.planet {
+    position: fixed;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    animation: planetFloat 15s ease-in-out infinite;
+}
+.planet-glow {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    filter: blur(10px);
+}
+.planet-crater {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+@keyframes planetFloat {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes meteorFall {
+    0% { opacity: 0; transform: translate(0, 0) rotate(-145deg); }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translate(300px, 300px) rotate(-145deg); }
+}
+
+/* 加载动画 */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* 布局样式 */
+.container {
+    width: 100%;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 56rem;
+    aspect-ratio: 16/9;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    position: relative;
+}
+
+.split-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+}
+
+.original-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.original-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flip-front, .flip-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.image-container {
+    background-size: 300% 100%;
+}
+
+/* 游戏列表布局 */
+.game-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .game-grid {
+    grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .game-grid {
+    grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 标志样式 */
+.logo-container {
+    margin-bottom: 2rem;
+    text-align: center;
+    transition: transform 0.7s;
+}
+
+.logo-container:hover {
+    transform: scale(1.05);
+}
+
+.logo {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 0.75rem;
+    background-color: var(--bg-opacity-10);
+    backdrop-filter: blur(0.25rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-opacity-30);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo i {
+    font-size: 2.5rem;
+    color: var(--accent);
+}
+
+/* 标题样式 */
+.section-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-desc {
+    color: var(--gray-300);
+    max-width: 32rem;
+    margin-bottom: 2rem;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* 按钮组样式 */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .button-group {
+    flex-direction: row;
+    }
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 0.875rem 2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-opacity-90);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--border-opacity-20);
+    color: var(--white);
+    padding: 0.875rem 2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    border-color: var(--border-opacity-40);
+}
+
+/* 加载遮罩 */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-opacity-80);
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-spinner {
+    width: 6rem;
+    height: 6rem;
+    border: 4px solid var(--accent-opacity-30);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loader-text {
+    color: var(--accent-opacity-80);
+}
+
+/* 滚动提示位置 */
+#scrollDownHint {
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+}
+
+#scrollUpHint {
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+}
+
+.scroll-hint span {
+    font-size: 0.875rem;
+    color: var(--gray-400);
+    margin-bottom: 0.5rem;
+}
+
+.scroll-hint i {
+    color: var(--gray-400);
+}
+
+#scrollUpHint i {
+    margin-bottom: 0.5rem;
+}

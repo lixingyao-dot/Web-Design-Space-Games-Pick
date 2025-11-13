@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太空射线防御</title>
+    <link rel="stylesheet" href="../css/common-game.css">
+    <link rel="stylesheet" href="../css/games/game-Space Ray Defense.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <button class="back-btn" id="backBtn">← 返回主菜单</button>
+    <h1 class="game-title">太空射线防御</h1>
+    
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+        
+        <div class="game-ui">
+            <div class="score-container">
+                <div>得分</div>
+                <div class="score" id="score">0</div>
+            </div>
+            <div class="lives-container">
+                <div>生命</div>
+                <div class="lives" id="lives">3</div>
+            </div>
+        </div>
+        
+        <div class="start-screen" id="startScreen">
+            <h2>太空射线防御</h2>
+            <p class="instructions">
+                保护星球核心免受宇宙射线的侵袭<br>
+                使用鼠标控制护盾阻挡射线<br>
+                避免射线击中核心减少生命值
+            </p>
+            <button class="btn" id="startBtn">开始游戏</button>
+        </div>
+        
+        <div class="game-over-screen hidden" id="gameOverScreen">
+            <h2>任务失败</h2>
+            <p class="instructions">
+                星球核心已被摧毁<br>
+                最终得分: <span id="finalScore">0</span>
+            </p>
+            <button class="btn" id="restartBtn">重新挑战</button>
+        </div>
+    </div>
+    
+    <footer>
+        太空射线防御 &copy; 2025 | 在宇宙深渊中保护星球核心！
+    </footer>
+    <script src="../js/games/game-Space Ray Defense.js"></script>
+</body>
+</html>

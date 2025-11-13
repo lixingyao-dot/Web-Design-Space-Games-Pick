@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <title>了解更多 - 星际探索作者信息</title>
+  <link rel="stylesheet" href="../css/pages/game-portal.css">
+  <link rel="stylesheet" href="../css/pages/more.css">
+</head>
+<body>
+  <!-- 星空背景 -->
+  <div id="stars"></div>
+  
+  <!-- 流星容器 -->
+  <div id="meteors"></div>
+  
+  <!-- 星球 -->
+  <div id="planets">
+
+    <div class="planet" style="width: 200px; height: 200px; top: 10%; left: 5%;">
+      <div class="planet-glow" style="width: 100%; height: 100%; background: radial-gradient(circle at 30% 30%, #ff6b6b, #c44569);"></div>
+      <div class="planet-crater" style="width: 20px; height: 20px; top: 30%; left: 20%;"></div>
+      <div class="planet-crater" style="width: 15px; height: 15px; top: 60%; left: 40%;"></div>
+      <div class="planet-crater" style="width: 25px; height: 25px; top: 40%; left: 70%;"></div>
+    </div>
+    
+    <div class="planet" style="width: 150px; height: 150px; top: 60%; right: 8%;">
+      <div class="planet-glow" style="width: 100%; height: 100%; background: radial-gradient(circle at 40% 40%, #74b9ff, #0984e3);"></div>
+      <div class="planet-crater" style="width: 15px; height: 15px; top: 20%; left: 30%;"></div>
+      <div class="planet-crater" style="width: 10px; height: 10px; top: 50%; left: 60%;"></div>
+      <div class="planet-crater" style="width: 20px; height: 20px; top: 70%; left: 40%;"></div>
+    </div>
+
+    <div class="planet" style="width: 100px; height: 100px; top: 30%; right: 20%;">
+      <div class="planet-glow" style="width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #55efc4, #00b894);"></div>
+      <div class="planet-crater" style="width: 12px; height: 12px; top: 40%; left: 30%;"></div>
+      <div class="planet-crater" style="width: 8px; height: 8px; top: 60%; left: 60%;"></div>
+    </div>
+
+    <div class="planet" style="width: 80px; height: 80px; top: 80%; left: 20%;">
+      <div class="planet-glow" style="width: 100%; height: 100%; background: radial-gradient(circle at 60% 60%, #fdcb6e, #e17055);"></div>
+    </div>
+  </div>
+  
+  <!-- 滚动空间 -->
+  <div class="scroll-space"></div>
+  
+  <!-- 中央火箭 -->
+  <div class="rocket-container floating">
+    <div class="rocket">
+
+      <div class="rocket-section">
+        <div style="width: 4rem; height: 4rem; margin-left: auto; margin-right: auto; background-color: var(--rocketGray); border-top-left-radius: 50%; border-top-right-radius: 50%; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0.5rem; left: 0; width: 100%; height: 1px; background-color: rgba(237, 137, 54, 0.7);"></div>
+          <div style="position: absolute; top: 1.5rem; left: 0; width: 100%; height: 1px; background-color: rgba(237, 137, 54, 0.5);"></div>
+          <div style="position: absolute; top: -1rem; left: 50%; transform: translateX(-50%); width: 1rem; height: 2rem; background-color: var(--rocketRed); border-top-left-radius: 50%; border-top-right-radius: 50%;"></div>
+        </div>
+      </div>
+      
+      <div class="rocket-section">
+        <div style="width: 4rem; height: 8rem; margin-left: auto; margin-right: auto; background-color: var(--rocketGray); position: relative;">
+          <div style="position: absolute; top: 2rem; left: 50%; transform: translateX(-50%); width: 2.5rem; height: 2.5rem; border-radius: 50%; background-color: var(--blue-900); border: 2px solid #d1d5db; box-shadow: 0 0 8px rgba(226, 232, 240, 0.9); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 1.5rem; height: 1.5rem; border-radius: 50%; background-color: rgba(224, 242, 254, 0.9);"></div>
+          </div>
+          
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 1px; background-color: var(--rocketOrange);"></div>
+          <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background-color: var(--rocketOrange);"></div>
+          <div style="position: absolute; top: 4rem; left: 0; width: 100%; height: 0.5px; background-color: rgba(237, 137, 54, 0.6);"></div>
+          
+          <div style="position: absolute; top: 1rem; left: 0; width: 1px; height: 1.5rem; background-color: var(--rocketRed);"></div>
+          <div style="position: absolute; top: 1rem; right: 0; width: 1px; height: 1.5rem; background-color: var(--rocketRed);"></div>
+        </div>
+      </div>
+      
+      <div class="rocket-section">
+        <div style="width: 5rem; height: 4rem; margin-left: auto; margin-right: auto; background-color: var(--rocketGray); position: relative;">
+          <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 3rem; height: 1.5rem; background-color: var(--gray-800); border-top-left-radius: 50%; border-top-right-radius: 50%;"></div>
+          
+          <div style="position: absolute; top: 0; left: -1rem; width: 3rem; height: 4rem; background-color: var(--rocketGray); transform: skewX(-12deg);">
+            <div style="position: absolute; top: 0.5rem; left: 0.5rem; width: 2rem; height: 1px; background-color: rgba(237, 137, 54, 0.7);"></div>
+          </div>
+          <div style="position: absolute; top: 0; right: -1rem; width: 3rem; height: 4rem; background-color: var(--rocketGray); transform: skewX(12deg);">
+            <div style="position: absolute; top: 0.5rem; right: 0.5rem; width: 2rem; height: 1px; background-color: rgba(237, 137, 54, 0.7);"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 火焰容器 -->
+      <div id="flame-container" style="position: relative; width: 100%; height: 0; display: flex; justify-content: center; animation: flameWobble 0.8s infinite alternate ease-in-out;">
+        <div class="flame-outer" style="position: absolute; width: 5rem; height: 100%; background: linear-gradient(to bottom, rgba(236, 201, 75, 0.6), rgba(237, 137, 54, 0.4), transparent); border-radius: 60% 60% 40% 40%;"></div>
+        <div class="flame-inner" style="position: absolute; width: 4rem; height: 100%; background: linear-gradient(to bottom, rgba(236, 201, 75, 0.8), rgba(237, 137, 54, 0.6), rgba(229, 62, 62, 0.3)); border-radius: 50% 50% 30% 30%;"></div>
+        <div class="flame-core" style="position: absolute; width: 2.5rem; height: 100%; background: linear-gradient(to bottom, var(--flameYellow), var(--flameOrange), rgba(229, 62, 62, 0.7)); border-radius: 40% 40% 20% 20%;"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 右侧内容容器 -->
+  <div class="right-panel">
+    <div class="content-container">
+      <div class="content-panel active" data-scroll-range="[0, 100]">
+        <h2>星际探索 作者信息</h2>
+        <p>感谢你参与本次深空探索任务！以下是项目作者的官方联系方式，欢迎通过GitHub关注项目更新，或通过邮箱交流反馈问题。</p>
+        
+        <ul class="contact-list">
+          <li>GitHub仓库：<a href="https://github.com/lixingyao-dot/Web-Design-Space-Games-Pick.git" target="_blank" class="author-link">https://github.com/lixingyao-dot/Web-Design-Space-Games-Pick.git</a></li>
+          <li>联系邮箱： 599850515@qq.com</li>
+        </ul>
+        
+        <div class="media-container">
+          <div class="media-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="var(--accent)" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+          </div>
+          <div class="media-caption">欢迎Star、Fork项目，一起完善星际探索体验</div>
+        </div>
+        
+        <p style="margin-top: 1.5rem;">项目持续更新中，后续可能完善或新增更多深空探索游戏、星球场景与互动功能，敬请关注。</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/pages/game-portal.js"></script>
+</body>
+</html>

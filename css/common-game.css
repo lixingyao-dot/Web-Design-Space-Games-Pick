@@ -1,0 +1,259 @@
+/* common-space.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* 通用太空背景样式 */
+body {
+    background: linear-gradient(135deg, #0c0c2e, #1a1a3e, #2a2a5e);
+    color: #fff;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 通用容器边框/阴影 */
+.common-container {
+    position: relative;
+    border: 3px solid #4a4aff;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(74, 74, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+ .game-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    border: 3px solid #4a4aff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(74, 74, 255, 0.5);
+}
+
+#gameCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #0a0a2a, #000015);
+}
+
+.game-ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.game-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #4a4aff;
+    text-shadow: 0 0 15px #4a4aff;
+    letter-spacing: 3px;
+}
+        
+.start-screen, .game-over-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 20, 0.85);
+    z-index: 20;
+    backdrop-filter: blur(5px);
+}
+
+.start-screen h2, .game-over-screen h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #4a4aff;
+    text-shadow: 0 0 15px #4a4aff;
+}
+/* 通用按钮样式 */
+.btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #4a4aff, #8a8aff);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(74, 74, 255, 0.4);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(74, 74, 255, 0.6);
+}
+
+/* 小尺寸通用按钮 */
+.btn-sm {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 30, 0.7);
+    border: 1px solid #4a4aff;
+    color: #4a4aff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    z-index: 10;
+}
+
+.back-btn:hover {
+    background: rgba(74, 74, 255, 0.2);
+    box-shadow: 0 0 10px #4a4aff;
+}
+
+/* 通用星空背景组件 */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+
+/* 通用提示文本样式 */
+.common-desc {
+    text-align: center;
+    color: #aaaaff;
+    line-height: 1.6;
+}
+
+ .instructions {
+    text-align: center;
+    max-width: 600px;
+    margin-top: 20px;
+    line-height: 1.6;
+    color: #aaaaff;
+}
+
+/* 通用隐藏类 */
+.hidden {
+    display: none;
+}
+
+/* 通用动画关键帧（复用率高） */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+
+/* 通用反馈框样式 */
+.common-feedback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 20px 40px;
+    border-radius: 10px;
+    z-index: 15;
+    display: none;
+}
+
+.feedback-correct {
+    background: rgba(74, 255, 74, 0.8);
+    color: #0a2a0a;
+    display: block;
+}
+
+.feedback-incorrect {
+    background: rgba(255, 74, 74, 0.8);
+    color: #2a0a0a;
+    display: block;
+}
+
+/* 通用半透明面板（适配信息容器、统计面板等） */
+.common-panel {
+    background: rgba(0, 0, 30, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #4a4aff;
+    backdrop-filter: blur(5px);
+}
+
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #8a8aff;
+    font-size: 0.9rem;
+}
+
+
+
+.music-control {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 30, 0.7);
+    border: 1px solid #4a4aff;
+    border-radius: 5px;
+    padding: 8px 15px;
+    color: #4a4aff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(5px);
+}
+
+.music-icon {
+    font-size: 18px;
+}
